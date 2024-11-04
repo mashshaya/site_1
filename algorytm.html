@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="site.css">
+    <title>algorytm</title>
+</head>
+<body>
+    <div class="container">
+            <div class="header-line">
+                 <div class="nav">
+                     <a class="nav-item" href="index.html" > Главная</a>
+                     <a class="nav-item" href="menu.html">Меню</a>
+                     <a class="nav-item" href="discounts.html">Акции</a>
+                     <a class="nav-item" href="contacts.html">О нас</a>
+                     <a class="nav-item" href="pasport.html">Паспорт</a>
+                     <a class="nav-item" href="DOM_JS.html">DOM_JS</a>
+                     <a class="nav-item" href="algorytm.html" style="color: #c66100;">Задача</a>
+                 </div>
+
+            </div>
+    </div>
+<div class="zadacha">
+<h1 align="center">Имеется коробка со сторонами: A × B × C. <br> Определить, пройдёт ли она в дверь с размерами M × N</h1>
+<div class="zadacha1">
+    <form id="calcForm">
+        <label for="elementA">Введите значение A:</label>
+        <input type="number" id="elementA" required>
+        <br>
+
+        <label for="elementB">Введите значение B:</label>
+        <input type="number" id="elementB" required>
+        <br>
+
+        <label for="elementC">Введите значение C:</label>
+        <input type="number" id="elementC" required>
+        <br>
+
+        <label for="elementM">Введите значение M:</label>
+        <input type="number" id="elementM" required>
+        <br>
+
+        <label for="elementN">Введите значение N:</label>
+        <input type="number" id="elementN" required>
+        <br>
+
+        <button type="button" onclick="calc()">Рассчитать</button>
+    </form>
+
+    <h2>Результат: <span id="result"></span></h2>
+
+    <script>
+        function calc() {
+
+            let elementA = document.getElementById('elementA');
+            let elementB = document.getElementById('elementB');
+            let elementC = document.getElementById('elementC');
+            let elementM = document.getElementById('elementM');
+            let elementN = document.getElementById('elementN');
+
+            let a = parseInt(elementA.value) || 0;
+            let b = parseInt(elementB.value) || 0;
+            let c = parseInt(elementC.value) || 0;
+            let m = parseInt(elementM.value) || 0;
+            let n = parseInt(elementN.value) || 0;
+
+            let x = [a, b, c];
+            let y = Math.max(...x);
+            x = x.filter(val => val !== y);
+
+            let width = x[0];
+            let height = x[1];
+
+            let result;
+            if ((width <= m && height <= n) || (width <= n && height <= m)) {
+                result = 'ДА';
+            } else {
+                result = 'НЕТ';
+            }
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+    </div>
+</div>
+</body>
+</html>
